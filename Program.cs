@@ -47,6 +47,21 @@
                             Console.WriteLine("No existe ese ID de cliente.");
                         }
                             break;
+
+                    case CAMBIAR_ENTRADA_DE_UN_CLIENTE:
+                        IDclienteAmodificar = IngresarNumeroNatural("Ingrese el ID del cliente que sea cambiarle la información: ");
+                        tipoEntradaAcambiar = IngresarTipoEntrada("Ingrese el nuevo tipo de entrada: ");
+                        cantidadAcambiar = IngresarNumeroNatural("Ingrese la nueva cantidad de entradas: ");
+                        if (Ticketera.CambiarEntrada(IDclienteAmodificar, tipoEntradaAcambiar, cantidadAcambiar))
+                        {
+                            DicClientes[IDclienteAmodificar].TipoEntrada = tipoEntradaAcambiar;
+                            DicClientes[IDclienteAmodificar].Cantidad = cantidadAcambiar;
+                        }
+                        else
+                        {
+                            Console.WriteLine("No existe ese ID de cliente y no se lo pudo modificar.");
+                        }
+                            break;
                 }
                 opcionMenu = IngresarOpcionMenu(PREGUNTAR_OPCION_MENU, NUEVA_INSCRIPCION, OBTENER_ESTADISTICAS_DEL_EVENTO, BUSCAR_CLIENTE, CAMBIAR_ENTRADA_DE_UN_CLIENTE, SALIR);
             }
