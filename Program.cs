@@ -21,6 +21,18 @@
             int opcionMenu, key, IDingresado, IDclienteAmodificar, tipoEntradaAcambiar, cantidadAcambiar;
             Cliente cliente = null;
 
+             while(opcionMenu != SALIR)
+            {
+                switch (opcionMenu)
+                {
+                    case NUEVA_INSCRIPCION:
+                        cliente = ObtenerCliente();
+                        key = Ticketera.AgregarCliente(cliente);
+                        DicClientes.Add(key, cliente);
+                            break;
+                }
+                opcionMenu = IngresarOpcionMenu(PREGUNTAR_OPCION_MENU, NUEVA_INSCRIPCION, OBTENER_ESTADISTICAS_DEL_EVENTO, BUSCAR_CLIENTE, CAMBIAR_ENTRADA_DE_UN_CLIENTE, SALIR);
+            }
         }
 
         static int IngresarOpcionMenu(string mensaje, int opcion1, int opcion2, int opcion3, int opcion4, int opcion5)
