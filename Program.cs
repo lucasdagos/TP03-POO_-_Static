@@ -34,6 +34,19 @@
                     case OBTENER_ESTADISTICAS_DEL_EVENTO:
                         MostrarEstadisticasEvento(DicClientes, OPCION1, OPCION2, OPCION3, OPCION4);
                             break;
+
+                    case BUSCAR_CLIENTE:
+                        IDingresado = IngresarNumeroNatural("Ingrese el ID:");
+                        Cliente clienteAbuscar = Ticketera.BuscarCliente(IDingresado);
+                        if(clienteAbuscar != null)
+                        {
+                            MostrarInformacionCliente(clienteAbuscar);
+                        }
+                        else
+                        {
+                            Console.WriteLine("No existe ese ID de cliente.");
+                        }
+                            break;
                 }
                 opcionMenu = IngresarOpcionMenu(PREGUNTAR_OPCION_MENU, NUEVA_INSCRIPCION, OBTENER_ESTADISTICAS_DEL_EVENTO, BUSCAR_CLIENTE, CAMBIAR_ENTRADA_DE_UN_CLIENTE, SALIR);
             }
